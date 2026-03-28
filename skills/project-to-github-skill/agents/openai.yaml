@@ -1,6 +1,6 @@
 interface:
   display_name: "Project To GitHub Skill"
-  short_description: "Package a finished project as a GitHub-ready skill repo"
-  default_prompt: "Use $project-to-github-skill to package this finished project as a GitHub-ready Codex skill repository."
+  short_description: "Package a finished project as a GitHub-ready skill repo or cleaned project repo"
+  default_prompt: "Use $project-to-github-skill to package this finished work into a GitHub-ready repository, choosing the right repo type and leaving it clean, documented, and push-ready."
 policy:
   allow_implicit_invocation: true

@@ -1,23 +1,42 @@
 # Packaging Checklist
 
-Use this checklist when converting a finished project into a GitHub-ready skill repository.
+Use this checklist when converting a finished project into a GitHub-ready repository.
 
-## 1. Confirm the project is ready to be packaged
+## 1. Decide the target repository type
 
-Package the project as a skill repo only when:
-- The workflow is already proven in real use.
-- The user wants a reusable Codex-facing artifact, not just project source code.
-- The public-facing repository can omit most of the original implementation details without losing the operational workflow.
+Do not assume the answer is always a skill repo. Pick one:
 
-## 2. Repository root contents
+- `skill repo`: the repository exists mainly to ship reusable skills inside `skills/`
+- `project repo`: the repository exists mainly to publish the cleaned working project itself
 
-A practical default repository should usually contain:
+If the user is unclear, resolve this first.
+
+## 2. Confirm the project is ready to be packaged
+
+Proceed only when:
+- the workflow is proven in real use
+- there is a maintained entry point or maintained mainline
+- the public-facing repo can omit noisy implementation history without losing the operational workflow
+
+## 3. Trim to the maintained mainline
+
+Before polishing docs, remove or archive:
+- duplicate historical branches and abandoned experiments
+- debug-only scripts
+- unfinished helpers and one-off migration files
+- generated caches and outputs
+- stale screenshots or analysis figures that no longer match the current mainline
+
+## 4. Choose the root repo shape
+
+### Skill repo default
 
 ```text
 repo-root/
 ├── README.md
 ├── README.zh-CN.md
 ├── LICENSE
+├── .gitignore
 ├── scripts/
 │   └── install_to_codex.sh
 └── skills/
@@ -29,43 +48,68 @@ repo-root/
         └── examples/
 ```
 
-Add more root files only when they materially improve publishing or installation.
+### Project repo default
 
-## 3. What to keep from the original project
+```text
+repo-root/
+├── README.md
+├── README.zh-CN.md
+├── LICENSE
+├── .gitignore
+├── docs/assets/
+└── <maintained-project-root>/
+```
 
-Retain only what helps future Codex runs:
-- Trigger conditions
-- Ordered workflows
-- Hard constraints and guardrails
-- Validation order
-- Decision checklists
-- Representative prompts
-- Small reusable helper scripts, if genuinely needed
+Add more files only when they materially improve publishing or installation.
 
-## 4. What to remove
+## 5. What to keep
+
+Retain only what helps future execution or reuse:
+- maintained entry points
+- ordered workflows
+- hard constraints and guardrails
+- validation order
+- real configuration examples
+- representative prompts
+- small reusable helper scripts, if genuinely needed
+- demo assets that reflect the current mainline
+
+## 6. What to remove
 
 Do not ship:
-- Build output, logs, caches, checkpoints, databases, lockfiles, model weights
-- Downloaded remote assets
-- Local machine paths, usernames, hostnames, ports, credentials
-- One-off debugging notes
-- Full project documentation that does not help Codex execute the workflow
+- build output, logs, caches, checkpoints, databases, lockfiles, model weights
+- downloaded remote assets unless they are intentionally part of the published repo
+- local machine paths, usernames, hostnames, credentials
+- one-off debugging notes or debug-only scripts
+- obsolete branches kept only out of habit
+- README references to files or directories that no longer exist
 
-## 5. Publishing hygiene
+## 7. Publishing hygiene
 
 Before calling the repo GitHub-ready:
-- Replace machine-bound values with placeholders
-- Check bilingual README instructions against the real repo shape
-- Ensure the install script matches the shipped layout
-- Validate every skill directory
-- Choose and include a license
-- Make sure `git status` is clean after final edits
+- replace machine-bound values with placeholders
+- check bilingual README instructions against the real repo shape
+- add a license intentionally
+- add a minimal `.gitignore`
+- ensure demo images and videos represent the maintained path
+- make sure `git status` is clean after final edits
 
-## 6. Final validation
+## 8. GitHub transport and authentication
 
-At minimum, confirm all of the following:
-- The new repo structure is coherent on its own
-- `scripts/install_to_codex.sh --list` works
-- Installing to a temporary target copies the expected skills
-- The main skill validates successfully
-- The README explains how to install and use the packaged skills
+Check the actual push path, not just the code:
+- verify `git remote -v`
+- if using `HTTPS`, use `PAT`, not the GitHub account password
+- if using `SSH`, verify the public key is uploaded to GitHub
+- if `ssh -T git@github.com` fails on port 22, try `ssh -T -p 443 git@ssh.github.com`
+- if needed, configure `github.com` to use `ssh.github.com:443`
+- confirm whether the user prefers direct network access or a proxy/VPN path
+
+## 9. Final validation
+
+At minimum, confirm:
+- the cleaned repo is coherent on its own
+- the README matches the shipped layout
+- install or run commands match the real repository
+- the main packaged skill or main project entry path is obvious
+- demo assets are accurate
+- the repo can be committed cleanly and is ready to push
