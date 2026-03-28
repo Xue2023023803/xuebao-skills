@@ -1,0 +1,6 @@
+interface:
+  display_name: "Project To Skill"
+  short_description: "Extract a reusable Codex skill from a finished project"
+  default_prompt: "Use $project-to-skill to turn this finished project into a reusable Codex skill package."
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Obsidian RAG"
+  short_description: "Analyze an Obsidian vault and build a local RAG stack"
+  default_prompt: "Use $build-obsidian-rag to analyze this Obsidian vault and build a local RAG knowledge base."

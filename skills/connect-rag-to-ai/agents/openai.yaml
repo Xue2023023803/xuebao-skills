@@ -1,0 +1,4 @@
+interface:
+  display_name: "Connect RAG To AI"
+  short_description: "Wire a local RAG stack into Ollama, Codex, or web chat"
+  default_prompt: "Use $connect-rag-to-ai to connect this local RAG knowledge base to an AI backend and interaction surface."
