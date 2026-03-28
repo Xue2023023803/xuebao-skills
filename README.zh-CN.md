@@ -10,8 +10,8 @@ English version: [README.md](README.md)
   分析 Obsidian 笔记库，选择合适的本地 RAG 方案，并落实索引、OCR 与同步。
 - `connect-rag-to-ai`
   将已经可用的检索层接到 Ollama、OpenAI 或 Codex，并通过可用的 Web 交互层暴露出去。
-- `project-to-skill`
-  将一个已经完成的项目提炼成可复用的 Codex skill，保留工作流、约束、参考资料与示例，去掉机器绑定内容。
+- `project-to-github-skill`
+  将一个已经完成的项目包装成可直接放到 GitHub 的 Codex skill 仓库，包含干净的仓库结构、安装流程与可发布的 skill 内容。
 
 ## 仓库结构
 
@@ -25,7 +25,7 @@ personal-codex-skills/
 └── skills/
     ├── build-obsidian-rag/
     ├── connect-rag-to-ai/
-    └── project-to-skill/
+    └── project-to-github-skill/
 ```
 
 ## 安装方式

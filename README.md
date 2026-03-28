@@ -10,8 +10,8 @@ A personal Codex skill library for reusable workflows.
   Analyze an Obsidian vault, choose a practical local RAG stack, and build or optimize indexing, OCR, and sync.
 - `connect-rag-to-ai`
   Connect a working retrieval layer to Ollama, OpenAI, or Codex and expose it through a usable web interaction surface.
-- `project-to-skill`
-  Turn an existing finished project into a reusable Codex skill by extracting workflows, references, examples, and guardrails.
+- `project-to-github-skill`
+  Package an already finished project into a GitHub-ready Codex skill repository with clean repo structure, install flow, and publishable skill content.
 
 ## Repository Layout
 
@@ -25,7 +25,7 @@ personal-codex-skills/
 └── skills/
     ├── build-obsidian-rag/
     ├── connect-rag-to-ai/
-    └── project-to-skill/
+    └── project-to-github-skill/
 ```
 
 ## Installation
