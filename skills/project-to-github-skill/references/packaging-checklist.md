@@ -72,6 +72,15 @@ Retain only what helps future execution or reuse:
 - small reusable helper scripts, if genuinely needed
 - demo assets that reflect the current mainline
 
+## 5a. README audience test
+
+Before finalizing a public README, ask:
+- Is this section useful to a reader of the repo, or only to the maintainer who packaged it?
+- Does this section explain what the repo is, how to use it, where to start, or what it outputs?
+- If the text is really a packaging reminder, should it live in the skill checklist instead of the README?
+
+Avoid low-value boilerplate such as generic "Publishing Notes" sections unless the repo is actually a publishing template and those notes are part of the user-facing purpose.
+
 ## 6. What to remove
 
 Do not ship:

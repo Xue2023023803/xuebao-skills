@@ -64,6 +64,17 @@ Treat repository packaging as a release task, not just a file-generation task.
 7. Commit the final packaging state.
    Leave the repo in a clean, pushable state with one or more commits that reflect the publication cleanup.
 
+## README Writing Rules
+
+Treat the repository README as a landing page for readers of the published repo, not as a maintainer checklist.
+
+- Write for the person who lands on the repo page and wants to understand what the repo is, why it exists, and how to use it.
+- Keep maintainer-only packaging rules in the skill instructions, checklist, or contribution docs rather than in the public README.
+- Do not add low-value sections such as generic "Publishing Notes" or "发布说明" unless the repository is explicitly a publishing template and those notes are a real user-facing feature.
+- Every README section should pass a usefulness test: a reader should learn what the repo does, how to run or install it, what the entry point is, what outputs to expect, or how to adapt it.
+- If a section only says things like "do not publish credentials" or "replace placeholders before release", that usually belongs in the packaging checklist, not in the README.
+- When bilingual docs are requested, prefer one single-page bilingual `README.md` with anchor links for English and Chinese sections. Use a separate `README.zh-CN.md` only when a redirect page or compatibility page is explicitly needed.
+
 ## Non-Negotiables
 
 - Do not publish caches, logs, checkpoints, downloaded artifacts, private credentials, or machine-local paths.
@@ -72,6 +83,7 @@ Treat repository packaging as a release task, not just a file-generation task.
 - Do not assume the final repo must be a skill repo; choose the repo type intentionally.
 - Do not recommend GitHub account passwords for Git operations. Use `PAT` for HTTPS or SSH keys for SSH.
 - If the repo claims an install or run path, verify that the commands match the shipped layout.
+- Do not dump maintainer-only packaging reminders into the public README. Keep those in the skill checklist or contribution guidance instead.
 - When bilingual docs are requested, prefer a single-page bilingual `README.md` with English and Chinese anchor navigation rather than two fully duplicated README bodies.
 
 ## Collaboration Lessons

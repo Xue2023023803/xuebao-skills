@@ -82,13 +82,6 @@ Show help:
 bash scripts/install_to_codex.sh --help
 ```
 
-## Publishing Notes
-
-- Keep skill content generic where possible.
-- Do not publish credentials, local paths, caches, logs, or generated artifacts.
-- When bilingual docs are needed, prefer a single-page bilingual `README.md` with anchor links for English and Chinese sections.
-- Add a separate `README.zh-CN.md` only when a redirect page or platform-specific compatibility page is explicitly needed.
-
 [Back to top](#top)
 
 ---
@@ -168,12 +161,5 @@ bash scripts/install_to_codex.sh --list
 ```bash
 bash scripts/install_to_codex.sh --help
 ```
-
-## 发布说明
-
-- 尽量保持 skill 内容通用，不要带入机器私有信息。
-- 不要发布凭证、本地路径、缓存、日志或生成产物。
-- 如果需要双语说明，优先使用单个 `README.md`，通过锚点链接在英文和中文之间切换。
-- 只有在确实需要跳转页或平台兼容页时，才额外添加 `README.zh-CN.md`。
 
 [返回顶部](#top)
