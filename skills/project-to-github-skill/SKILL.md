@@ -16,7 +16,7 @@ Treat repository packaging as a release task, not just a file-generation task.
 ## Use This Skill When
 
 - The project already works and the user wants a GitHub-ready public or shareable repository.
-- The user wants repo-level files such as `README.md`, `README.zh-CN.md`, `LICENSE`, `.gitignore`, install/run instructions, demo assets, or publish metadata.
+- The user wants repo-level files such as `README.md`, `LICENSE`, `.gitignore`, install/run instructions, demo assets, or publish metadata.
 - The original project contains reusable content plus machine-specific residue, debugging artifacts, legacy branches, or unpublished drafts that must be cleaned before publication.
 - The user may need help with GitHub publishing details such as remote type, PAT vs password, SSH setup, or blocked SSH port 22.
 
@@ -42,7 +42,8 @@ Treat repository packaging as a release task, not just a file-generation task.
 4. Build the repo-level publishing layer.
    Add or fix the repository root files that make the repo understandable and publishable:
    - `README.md`
-   - `README.zh-CN.md` when bilingual docs are desired
+   - when bilingual docs are desired, prefer a single-page bilingual `README.md` with anchor links
+   - `README.zh-CN.md` only when a redirect page or compatibility page is explicitly needed
    - `LICENSE`
    - `.gitignore`
    - `docs/assets/` or equivalent demo media when they materially help
@@ -71,6 +72,7 @@ Treat repository packaging as a release task, not just a file-generation task.
 - Do not assume the final repo must be a skill repo; choose the repo type intentionally.
 - Do not recommend GitHub account passwords for Git operations. Use `PAT` for HTTPS or SSH keys for SSH.
 - If the repo claims an install or run path, verify that the commands match the shipped layout.
+- When bilingual docs are requested, prefer a single-page bilingual `README.md` with English and Chinese anchor navigation rather than two fully duplicated README bodies.
 
 ## Collaboration Lessons
 

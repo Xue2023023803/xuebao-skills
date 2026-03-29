@@ -34,7 +34,6 @@ Before polishing docs, remove or archive:
 ```text
 repo-root/
 ├── README.md
-├── README.zh-CN.md
 ├── LICENSE
 ├── .gitignore
 ├── scripts/
@@ -53,7 +52,6 @@ repo-root/
 ```text
 repo-root/
 ├── README.md
-├── README.zh-CN.md
 ├── LICENSE
 ├── .gitignore
 ├── docs/assets/
@@ -88,7 +86,9 @@ Do not ship:
 
 Before calling the repo GitHub-ready:
 - replace machine-bound values with placeholders
-- check bilingual README instructions against the real repo shape
+- when bilingual docs are needed, prefer a single-page bilingual `README.md` with anchor links for English and Chinese
+- add `README.zh-CN.md` only when a redirect page or compatibility page is explicitly useful
+- check README instructions against the real repo shape
 - add a license intentionally
 - add a minimal `.gitignore`
 - ensure demo images and videos represent the maintained path
