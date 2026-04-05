@@ -18,6 +18,17 @@ Proceed only when:
 - there is a maintained entry point or maintained mainline
 - the public-facing repo can omit noisy implementation history without losing the operational workflow
 
+## 2a. Classify primary workflow vs helper tooling
+
+Before writing or editing the README, scan the repository and explicitly separate:
+- primary user entry points: what a reader of the published repo should actually run, open, or follow first
+- auxiliary maintainer tooling: demo generators, migration scripts, packaging helpers, debug scripts, asset builders, and other helper utilities
+
+This distinction must shape the README:
+- highlight the primary user path
+- keep helper tooling out of the main run/install path unless it is truly part of normal use
+- avoid turning "repo contains this script" into "README recommends this script"
+
 ## 3. Trim to the maintained mainline
 
 Before polishing docs, remove or archive:
@@ -78,6 +89,7 @@ Before finalizing a public README, ask:
 - Is this section useful to a reader of the repo, or only to the maintainer who packaged it?
 - Does this section explain what the repo is, how to use it, where to start, or what it outputs?
 - If the text is really a packaging reminder, should it live in the skill checklist instead of the README?
+- Is this command or file part of the actual user workflow, or is it only a helper that happens to live in the repository?
 
 Avoid low-value boilerplate such as generic "Publishing Notes" sections unless the repo is actually a publishing template and those notes are part of the user-facing purpose.
 

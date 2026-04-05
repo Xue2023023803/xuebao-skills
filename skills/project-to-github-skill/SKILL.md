@@ -31,15 +31,22 @@ Treat repository packaging as a release task, not just a file-generation task.
 1. Audit the finished project and the publishing goal.
    Identify the real user outcome, maintained entry point, repeated workflow, required tools, constraints, validation steps, and what is reusable versus private or noisy.
 
-2. Decide the repository type before editing.
+2. Scan the repository and classify entry points before editing.
+   Explicitly separate:
+   - the primary user path: what a reader of the published repo should actually run, open, or follow first
+   - auxiliary maintainer tooling: helper scripts, demo generators, migration tools, packaging helpers, or one-off utilities that may remain in the repo but are not part of the main usage path
+
+   Use this classification when writing the README. The public README should foreground the primary user path and avoid promoting auxiliary tooling as if it were part of normal use.
+
+3. Decide the repository type before editing.
    Pick one of these targets explicitly:
    - `skill repo`: root repo wraps one or more packaged skills inside `skills/`
    - `project repo`: root repo is the cleaned original project itself
 
-3. Trim to the maintained mainline.
+4. Trim to the maintained mainline.
    Remove legacy branches, duplicate experimental directories, caches, generated outputs, one-off debug files, and unfinished helpers. Keep only the current maintained path plus assets that are genuinely needed.
 
-4. Build the repo-level publishing layer.
+5. Build the repo-level publishing layer.
    Add or fix the repository root files that make the repo understandable and publishable:
    - `README.md`
    - when bilingual docs are desired, prefer a single-page bilingual `README.md` with anchor links
@@ -49,10 +56,10 @@ Treat repository packaging as a release task, not just a file-generation task.
    - `docs/assets/` or equivalent demo media when they materially help
    - install or run instructions that match the actual repo type
 
-5. Normalize for public reuse.
+6. Normalize for public reuse.
    Remove usernames, absolute paths, private hosts, credentials, local ports, machine-bound assumptions, one-off logs, and stale screenshots. Demo images and videos must match the current maintained mainline rather than historical behavior.
 
-6. Validate publishing hygiene.
+7. Validate publishing hygiene.
    Confirm all of the following before calling the repo GitHub-ready:
    - the README matches the actual directory layout
    - examples reference files that really exist
@@ -61,7 +68,7 @@ Treat repository packaging as a release task, not just a file-generation task.
    - the chosen Git transport is workable: `HTTPS + PAT` or `SSH`
    - if SSH port 22 is blocked, switch to `ssh.github.com:443`
 
-7. Commit the final packaging state.
+8. Commit the final packaging state.
    Leave the repo in a clean, pushable state with one or more commits that reflect the publication cleanup.
 
 ## README Writing Rules
@@ -74,6 +81,7 @@ Treat the repository README as a landing page for readers of the published repo,
 - Every README section should pass a usefulness test: a reader should learn what the repo does, how to run or install it, what the entry point is, what outputs to expect, or how to adapt it.
 - If a section only says things like "do not publish credentials" or "replace placeholders before release", that usually belongs in the packaging checklist, not in the README.
 - When bilingual docs are requested, prefer one single-page bilingual `README.md` with anchor links for English and Chinese sections. Use a separate `README.zh-CN.md` only when a redirect page or compatibility page is explicitly needed.
+- Before writing README usage sections, scan the repository and classify what is a primary user entry point versus what is only helper tooling. The README should highlight the primary user path. Auxiliary scripts may stay in the repo, but they should not be presented as normal usage unless they are genuinely part of the user-facing workflow.
 
 ## Non-Negotiables
 
